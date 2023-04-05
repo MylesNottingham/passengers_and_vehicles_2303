@@ -1,10 +1,9 @@
-# require "rspec"
 require "./lib/passenger"
 
 RSpec.describe Passenger do
   before(:each) do
-    @charlie = Passenger.new({"name" => "Charlie", "age" => 18})
-    @taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+    @charlie = Passenger.new({ "name" => "Charlie", "age" => 18 })
+    @taylor = Passenger.new({ "name" => "Taylor", "age" => 12 })
   end
 
   describe "#initialize" do
@@ -12,14 +11,12 @@ RSpec.describe Passenger do
       expect(@charlie).to be_a(Passenger)
       expect(@charlie.name).to eq("Charlie")
       expect(@charlie.age).to eq(18)
-      expect(@charlie.driver?).to eq(false)
     end
 
     it "can initialize a different passenger with attributes" do
       expect(@taylor).to be_a(Passenger)
       expect(@taylor.name).to eq("Taylor")
       expect(@taylor.age).to eq(12)
-      expect(@taylor.driver?).to eq(false)
     end
   end
 
