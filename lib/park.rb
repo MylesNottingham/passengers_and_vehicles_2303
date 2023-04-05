@@ -7,7 +7,7 @@ class Park
     @name = name
     @admission_price = admission_price
     @vehicles = []
-    @passengers = []
+    @passenger_array = []
   end
 
   def add_vehicle(vehicle)
@@ -15,10 +15,14 @@ class Park
   end
 
   def passengers
-    @passengers = @vehicles.map(&:passengers).flatten
+    @passenger_array = @vehicles.map(&:passengers).flatten
   end
 
   def revenue
     @vehicles.sum(&:num_adults) * @admission_price
+  end
+
+  def all_attendees
+    passengers.map(&:name).flatten.sort
   end
 end

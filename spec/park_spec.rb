@@ -104,4 +104,17 @@ RSpec.describe Park do
       expect(@mesa_verde.revenue).to eq(30)
     end
   end
+
+  describe "#all_attendees" do
+    it "can return an array of all attendees in a park" do
+      @yosemite.add_vehicle(@civic)
+      @civic.add_passenger(@charlie)
+      @civic.add_passenger(@taylor)
+
+      @yosemite.add_vehicle(@tundra)
+      @tundra.add_passenger(@jude)
+
+      expect(@yosemite.all_attendees).to eq(["Charlie", "Jude", "Taylor"])
+    end
+  end
 end
